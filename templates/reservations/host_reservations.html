@@ -1,26 +1,72 @@
 {% extends 'base.html' %}
-{% load arabic_numerals %}
+
+{% load static %}
+
 
 {% block title %}لیست رزرو ها{% endblock %}
 
 {% block content %}
-    <h1>رزرو های دیگران</h1>
-    {% if reservations %}
-        <div class="house-grid">
-            {% for reservation in reservations %}
-                <div class="house-card">
-                    <img src="{{ reservation.house.image.url }}" alt="{{ reservation.house.name }}">
-                    <a class="house-name" href="{% url 'house_detail' reservation.house.pk %}"><p>خانه: {{ reservation.house.name }}</p></a>
-                    <p><strong>رزرو شده توسط:</strong> {{ reservation.user.username }}</p>
-                    <p><strong>شماره تماس مسافر :</strong> {{ reservation.user.phonenumber|arabic_numerals }}</p>
-                    <p><strong>تاریخ شروع:</strong> {{ reservation.arrive_date|date:"Y/m/d"|arabic_numerals }}</p>
-                    <p><strong>تاریخ تحویل:</strong> {{ reservation.exit_date|date:"Y/m/d"|arabic_numerals }}</p>
-                    <p><strong>تعداد مسافرین:</strong> {{ reservation.count_of_passengers|arabic_numerals }}</p>
-                    <p><strong>قیمت کل:</strong> {{ reservation.total_price|arabic_numerals }} تومان</p>
-                </div>
-            {% endfor %}
-            </div>
-    {% else %}
-        <p>هیج رزروی انجام نشده!</p>
-    {% endif %}
+    <section class="container my-5 py-md-5">
+        <p class="titleWithBg">رزرو ها</p>
+        <div class="row">
+            {% if reservations %}
+                {% for reservation in reservations %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="hotelDetailCard">
+                            <div class="boxHeader">
+                                <a href="{% url 'house_detail' reservation.house.pk %}">
+                                    <div class="img" style="background-image: url({{ reservation.house.image.url }})">
+                                        <div class="text">
+                                            <p class="m-0">{{ reservation.house.name }}</p>
+                                            <p class="m-0">{{ reservation.house.price_per_day }} تومان</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="detail row">
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="خانه">
+                                        <p class="m-0">{{ reservation.house.area }} متر</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="خانه">
+                                        <p class="m-0">{{ reservation.house.number_of_rooms }} اتاق</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="خانه">
+                                        <p class="m-0">{{ reservation.house.number_of_parkings }} پارکینگ</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="خانه">
+                                        <p class="m-0">{{ reservation.house.capacity }} نفر</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxContent">
+                                <a href="{% url 'house_detail' reservation.house.pk %}" class="font-weight-bold h6 my-4 text-center d-block" title="{{ reservation.house.city }}">
+                                    {{ reservation.house.city }}
+                                </a>
+                                <div class="mb-2 d-flex align-items-center justify-content-center">
+                                    <div>
+                                        <p><strong>رزرو شده توسط:</strong> {{ reservation.user.username }}</p>
+                                        <p><strong>شماره تماس مسافر :</strong> {{ reservation.user.phonenumber }}</p>
+                                        <p><strong>تاریخ شروع:</strong> {{ reservation.arrive_date|date:"Y/m/d" }}</p>
+                                        <p><strong>تاریخ تحویل:</strong> {{ reservation.exit_date|date:"Y/m/d" }}</p>
+                                        <p><strong>تعداد مسافرین:</strong> {{ reservation.count_of_passengers }}</p>
+                                        <p><strong>قیمت کل:</strong> {{ reservation.total_price }} تومان</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxFooter">
+                                <div>
+                                    <a href="{% url 'house_detail' reservation.house.pk %}" class="blue-btn" title="نمایش اطلاعات">نمایش اطلاعات</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>هیچ رزروی انجام نشده!</p>
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}

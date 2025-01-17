@@ -665,7 +665,7 @@ h6 {
 .blue-btn:hover,
 .blue-btn.active {
     background-color: white;
-    color: var(--main-blue);
+    color: #fff;
 }
 
 .white-btn {
@@ -1973,4 +1973,43 @@ legend {
     .fieldset-margin {
         margin-bottom: 20px;
     }
+}
+
+
+/* Edit button */
+.edit-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 25%;
+}
+
+.edit-btn:hover {
+    background-color: #65c76a;
+    color: #ccc;
+}
+
+/* Delete button */
+.delete-btn {
+    margin-top: 10px;
+    background-color: #f44336; 
+    color: white; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 25%;
+}
+
+.delete-btn:hover {
+    background-color: #d1615f;
+    color: #ccc; 
 }

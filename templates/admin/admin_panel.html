@@ -166,13 +166,17 @@
                                 <td>{{ user.username }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>
-                                    <form method="post">
+                                    <form method="post" action="{% url 'host_requests' %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="user_id" value="{{ user.id }}">
-                                        <button type="submit" name="approve" value="true" class="btn btn-success">موافقت</button>
-                                        <button type="submit" name="approve" value="false" class="btn btn-danger">لغو</button>
+                                        <button type="submit" name="action" value="approve" class="btn btn-success">موافقت</button>
+                                        <button type="submit" name="action" value="deny" class="btn btn-danger">لغو</button>
                                     </form>
                                 </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3" class="text-center">هیچ درخواستی برای میزبانی وجود ندارد.</td>
                             </tr>
                             {% endfor %}
                         </tbody>

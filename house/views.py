@@ -43,6 +43,7 @@ class HouseDetailView(DetailView):
         # Get all houses and send them to the template
         houses = House.objects.all()
         context['houses'] = houses
+        context['range'] = range(1, 6)
 
         # Get reviews for the current house
         reviews = Review.objects.filter(house=house)

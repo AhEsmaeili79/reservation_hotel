@@ -78,6 +78,12 @@ def admin_panel(request):
 
     return render(request, 'admin/admin_panel.html', context)
 
+def host_houses(request):
+    if request.user.is_authenticated and request.user.role == 2:
+        host_houses = House.objects.filter(user=request.user)
+        return render(request, 'admin/host_houses.html', {'host_houses': host_houses})
+    else:
+        return render(request, 'admin/access_denied.html')  
 
 @login_required
 def admin_delete_user(request, user_id):
@@ -121,18 +127,16 @@ def toggle_house_status(request, house_id):
     return redirect('admin_panel')  # Redirect to the admin panel after toggling house status
 
 
-@login_required
 def host_requests(request):
     if request.method == 'POST':
         user_id = request.POST.get('user_id')
         action = request.POST.get('action')
         user = get_object_or_404(User, id=user_id)
         if action == 'approve':
-            user.role = 2  # Host role
+            user.role = 2
         user.role_change_requested = False
         user.save()
-        return redirect('admin_panel')  # Redirect to the admin panel after handling the host request
+        return redirect('host_requests')
 
     users_requesting_role_change = User.objects.filter(role_change_requested=True)
-    return render(request, 'admin/host_requests.html', {'users': users_requesting_role_change})
-
+    return render(request, 'admin/admin_panel.html', {'users': users_requesting_role_change})

@@ -7,53 +7,51 @@
 <div class="container contentForTab show" for="v-pills-home-tab">
     <div class="content-box p-3">
         <p class="titleWithBg">تصاویر</p>
-        <div class="lightgallery image-gallery halfItem">
-            
+        <div class="lightgallery image-gallery default">
             {% if object.image %}
-            <div class="item-wrapper" data-src="{{ object.image.url }}"
-                data-sub-html="<h4>عنوان 1</h4><p>متن توضیحی 1</p>">
-                <a href="">
-                    <img class="img-responsive" src="{{ object.image.url }}">
-                </a>
-            </div>
+                <div class="item-wrapper" data-src="{{ object.image.url }}"
+                    data-sub-html="<h4>عنوان 1</h4><p>متن توضیحی 1</p>">
+                    <a href="">
+                        <img class="img-responsive" src="{{ object.image.url }}">
+                    </a>
+                </div>
             {% endif %}
             
             {% if object.image2 %}
-            <div class="item-wrapper" data-src="{{ object.image2.url }}"
-                data-sub-html="<h4>عنوان 2</h4><p>متن توضیحی 2</p>">
-                <a href="">
-                    <img class="img-responsive" src="{{ object.image2.url }}">
-                </a>
-            </div>
+                <div class="item-wrapper" data-src="{{ object.image2.url }}"
+                    data-sub-html="<h4>عنوان 2</h4><p>متن توضیحی 2</p>">
+                    <a href="">
+                        <img class="img-responsive" src="{{ object.image2.url }}">
+                    </a>
+                </div>
             {% endif %}
             
             {% if object.image3 %}
-            <div class="item-wrapper" data-src="{{ object.image3.url }}"
-                data-sub-html="<h4>عنوان 3</h4><p>متن توضیحی 3</p>">
-                <a href="">
-                    <img class="img-responsive" src="{{ object.image3.url }}">
-                </a>
-            </div>
+                <div class="item-wrapper" data-src="{{ object.image3.url }}"
+                    data-sub-html="<h4>عنوان 3</h4><p>متن توضیحی 3</p>">
+                    <a href="">
+                        <img class="img-responsive" src="{{ object.image3.url }}">
+                    </a>
+                </div>
             {% endif %}
             
             {% if object.image4 %}
-            <div class="item-wrapper" data-src="{{ object.image4.url }}"
-                data-sub-html="<h4>عنوان 4</h4><p>متن توضیحی 4</p>">
-                <a href="">
-                    <img class="img-responsive" src="{{ object.image4.url }}">
-                </a>
-            </div>
+                <div class="item-wrapper" data-src="{{ object.image4.url }}"
+                    data-sub-html="<h4>عنوان 4</h4><p>متن توضیحی 4</p>">
+                    <a href="">
+                        <img class="img-responsive" src="{{ object.image4.url }}">
+                    </a>
+                </div>
             {% endif %}
             
             {% if object.image5 %}
-            <div class="item-wrapper" data-src="{{ object.image5.url }}"
-                data-sub-html="<h4>عنوان 5</h4><p>متن توضیحی 5</p>">
-                <a href="">
-                    <img class="img-responsive" src="{{ object.image5.url }}">
-                </a>
-            </div>
+                <div class="item-wrapper" data-src="{{ object.image5.url }}"
+                    data-sub-html="<h4>عنوان 5</h4><p>متن توضیحی 5</p>">
+                    <a href="">
+                        <img class="img-responsive" src="{{ object.image5.url }}">
+                    </a>
+                </div>
             {% endif %}
-            
         </div>
     </div>
 </div>
