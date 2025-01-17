@@ -4,14 +4,13 @@
 <section class="owl-carousel-wrapper">
     <div class="container">
         <div class="titleWithBg d-flex align-items-center justify-content-between">
-            <p class="mb-0 ml-2">هتل های پیشنهادی</p>
+            <p class="mb-0 ml-2">بهترین ها</p>
             <a class="font-weight-normal" href="#" title="بیشتر">بیشتر +</a>
         </div>
         <!--start owl-layout section-->
         <div class="owl-layout-wrapper">
             <div class="owl-carousel 4-col-owl">
                 {% for house in houses %}
-                    {% if house.pk >= 7 and house.pk <= 11 %}
                     <div class="suiteCard">
                         <!-- Static image path -->
                         <img class="w-100" src="{{ house.image.url }}" alt="{{ house.name }}">
@@ -47,7 +46,6 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
