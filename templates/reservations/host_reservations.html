@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load arabic_numerals %}
+
+{% block title %}لیست رزرو ها{% endblock %}
+
+{% block content %}
+    <h1>رزرو های دیگران</h1>
+    {% if reservations %}
+        <div class="house-grid">
+            {% for reservation in reservations %}
+                <div class="house-card">
+                    <img src="{{ reservation.house.image.url }}" alt="{{ reservation.house.name }}">
+                    <a class="house-name" href="{% url 'house_detail' reservation.house.pk %}"><p>خانه: {{ reservation.house.name }}</p></a>
+                    <p><strong>رزرو شده توسط:</strong> {{ reservation.user.username }}</p>
+                    <p><strong>شماره تماس مسافر :</strong> {{ reservation.user.phonenumber|arabic_numerals }}</p>
+                    <p><strong>تاریخ شروع:</strong> {{ reservation.arrive_date|date:"Y/m/d"|arabic_numerals }}</p>
+                    <p><strong>تاریخ تحویل:</strong> {{ reservation.exit_date|date:"Y/m/d"|arabic_numerals }}</p>
+                    <p><strong>تعداد مسافرین:</strong> {{ reservation.count_of_passengers|arabic_numerals }}</p>
+                    <p><strong>قیمت کل:</strong> {{ reservation.total_price|arabic_numerals }} تومان</p>
+                </div>
+            {% endfor %}
+            </div>
+    {% else %}
+        <p>هیج رزروی انجام نشده!</p>
+    {% endif %}
+{% endblock %}

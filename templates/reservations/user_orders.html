@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}سوییت های پیشنهادی{% endblock %}
+
+{% block content %}
+    <section class="container my-5 py-md-5">
+        <p class="titleWithBg">رزرو ها</p>
+        <div class="row">
+            {% if orders %}
+                {% for order in orders %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="hotelDetailCard">
+                            <div class="boxHeader">
+                                <a href="{% url 'house_detail' order.house.id %}">
+                                    <div class="img" style="background-image: url({{ order.house.image.url }})">
+                                        <div class="text">
+                                            <p class="m-0">{{ order.house.name }}</p>
+                                            <p class="m-0">{{ order.house.price_per_day }} تومان</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="detail row">
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="هتل">
+                                        <p class="m-0">{{ order.house.area }} متر</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="هتل">
+                                        <p class="m-0">{{ order.house.number_of_rooms }} اتاق</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="هتل">
+                                        <p class="m-0">{{ order.house.number_of_parkings }} پارکینگ</p>
+                                    </div>
+                                    <div class="col-3 px-1">
+                                        <img src="{% static 'images/icon/home.png' %}" alt="هتل">
+                                        <p class="m-0">{{ order.house.capacity }} نفر</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxContent">
+                                <a href="{% url 'house_detail' order.house.id %}" class="font-weight-bold h6 my-4 text-center d-block" title="{{ order.house.city }}">
+                                    {{ order.house.city }}
+                                </a>
+                                <div class="mb-2 d-flex align-items-center justify-content-center">
+                                    <div>
+                                        <p>تاریخ شروع: {{ order.arrive_date|date:"Y/m/d" }}</p>
+                                        <p>تاریخ تحویل: {{ order.exit_date|date:"Y/m/d" }}</p>
+                                        <p>تعداد مسافرین: {{ order.count_of_passengers }}</p>
+                                        <p>قیمت کل: {{ order.total_price }} تومان</p>
+                                        <p>شماره تماس میزبان: {{ order.house.user.phonenumber }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxFooter">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <form method="post" action="{% url 'cancel_order' order.pk %}">
+                                            {% csrf_token %}
+                                            <button class="red-btn rounded-border" type="submit">کنسل کن</button>
+                                        </form>
+                                        <div class="dropup share-btn px-2">
+                                            <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-share-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="{% url 'house_detail' order.house.id %}" class="blue-btn" title="نمایش اطلاعات">نمایش اطلاعات</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>شما هیچ سفارشی ندارید</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

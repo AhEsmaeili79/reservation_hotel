@@ -41,7 +41,7 @@ def order_house(request, pk):
             return redirect('house_detail', pk=pk)  
     else:
         form = OrderForm()
-    return render(request, 'house/house_detail.html', {'form': form, 'house': house})
+    return render(request, 'vila/vila_detail.html', {'form': form, 'house': house})
 
 
 @login_required

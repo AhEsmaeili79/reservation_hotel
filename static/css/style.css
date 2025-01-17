@@ -786,6 +786,7 @@ h6 {
 
 /* ********** start header section ********** */
 .header-nav {
+    background-color: #6143FE;
     color: white;
     transition: 0.3s linear;
 }
@@ -1626,5 +1627,350 @@ footer .footer-link .link:hover {
 @media screen and (max-width:768px) {
     .login-box .image-wrapper {
         display: none;
+    }
+}
+
+
+
+.search-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.search-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.search-form input,
+.search-form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+.sort-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sort-options select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.sort-options button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sort-options button:hover {
+    background-color: #218838;
+}
+
+
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 40px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-right: 8px; /* Space between stars */
+}
+
+.rating input:checked ~ label,
+.rating input:checked + label {
+    color: #f39c12; /* Gold color for selected stars */
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #f39c12;
+}
+
+.rating input:focus + label {
+    outline: none;
+}
+
+.rating label:hover,
+.rating input:checked ~ label:hover {
+    color: #f39c12;
+}
+
+.error {
+    font-size: 0.9rem;
+    color: red;
+    margin-top: 5px;
+}
+
+.form-control {
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.blue-btn {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blue-btn:hover {
+    background-color: #0056b3;
+}
+
+.titleWithBg {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#id_rating {
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Custom arrow for the dropdown */
+#id_rating::-ms-expand {
+    display: none;
+}
+
+#id_rating {
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    
+    /* Smaller background arrow */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 5%22%3E%3Cpolygon points=%220,0 10,0 5,5%22 fill=%22%23999%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    background-size: 12px 8px; /* Make the background image smaller */
+}
+.title-hotel {
+    text-align: center; /* Centers the text */
+    margin-top: 20px; /* Adds margin to the top */
+    margin-bottom: 20px; /* Adds margin to the bottom */
+    padding-bottom: 50px; /* Adds padding around the text */
+}
+.alerts{
+    margin: 80px;
+}
+.red-btn {
+    background-color: #e64452;
+    border: none;
+    padding: 6px 15px !important;
+    font-size: 16px !important;
+    color: white;
+    border-radius: 5px !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    right: 10px;
+    top: 10px;
+}
+.alert.success{
+    background-color: #D4EDDA;
+    color: #155724;
+}
+.alert.error{
+    background-color: #F8D7DA;
+    color: #721C24;
+}
+
+/* General Form Styling */
+.page-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-header {
+    font-size: 1.5rem;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Centering Form */
+.content-wrapper {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;  /* Center the form horizontally */
+}
+
+/* Form Section */
+.form-section {
+    margin-bottom: 30px;
+}
+
+/* Form Group */
+.form-input {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Input fields */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Buttons */
+.btn-submit, .btn-request {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover, .btn-request:hover {
+    background-color: #218838;
+}
+
+/* Fieldset Styling */
+.fieldset-margin {
+    border: none;
+    margin-bottom: 30px;
+}
+
+legend {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .section-header {
+        font-size: 1.3rem;
+    }
+
+    .input-field {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .btn-submit, .btn-request {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 100%;
+    }
+
+    /* Adjust form wrapper for smaller screens */
+    .content-wrapper {
+        padding: 20px;
+    }
+
+    .form-input {
+        margin-bottom: 10px;
+    }
+
+    .fieldset-margin {
+        margin-bottom: 20px;
     }
 }
