@@ -4,7 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+asgiref = "*"
 django = "*"
+django-crispy-forms = "*"
+pillow = "*"
+pytz = "*"
+sqlparse = "*"
+django_jalali = "*"
+jdatetime = "*"
+persiantools = "*"
 
 [dev-packages]
 
