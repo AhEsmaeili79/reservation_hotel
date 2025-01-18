@@ -71,13 +71,10 @@
                         <a class="nav-link" href="{% url 'house_list' %}" title="ویلا ها">ویلا ها</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" title="بلاگ">بلاگ</a>
+                        <a class="nav-link" href="{% url 'article' %}" title="بلاگ">بلاگ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" title="تماس با ما">تماس با ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="درباره ما">درباره ما</a>
+                        <a class="nav-link" href="{% url 'about_us' %}" title="درباره ما">درباره ما</a>
                     </li>
                 </ul>
                 {% if user.is_authenticated %}

@@ -79,4 +79,8 @@ def user_info(request):
         'user_form': user_form,
     })
 
+def article(request):
+    return render(request, 'pages/article.html')
 
+def aboutus(request):
+    return render(request, 'pages/aboutus.html')
